@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Said Obakrim – CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --accent: #1769ff;
+      --accent-soft: rgba(23, 105, 255, 0.08);
+      --accent-strong: rgba(23, 105, 255, 0.16);
+      --bg: #f3f5fb;
+      --card-bg: #ffffff;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --border-soft: #e0e6f0;
+      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.12);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top left, #e5edff 0, #f3f5fb 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 32px auto;
+      padding: 16px;
+    }
+
+    .cv-shell {
+      background: linear-gradient(135deg, #ffffff 0%, #f9fbff 40%, #ffffff 100%);
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      padding: 30px 26px 28px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cv-shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top right, rgba(23, 105, 255, 0.07), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .cv-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HEADER */
+
+    header.cv-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      border-bottom: 1px solid var(--border-soft);
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    .profile-pic {
+      flex: 0 0 110px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-pic-inner {
+      padding: 3px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 160deg,
+        rgba(23, 105, 255, 0.3),
+        rgba(129, 140, 248, 0.4),
+        rgba(59, 130, 246, 0.5),
+        rgba(23, 105, 255, 0.3)
+      );
+    }
+
+    .profile-pic img {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 3px solid #f9fafb;
+    }
+
+    .header-main {
+      flex: 1 1 240px;
+      min-width: 0;
+    }
+
+    .name {
+      font-size: 2rem;
+      font-weight: 750;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .name span {
+      font-weight: 300;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.04);
+      color: var(--text-muted);
+    }
+
+    .title-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .title-pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.06);
+    }
+
+    .contact-label {
+      font-weight: 600;
+      color: var(--text-main);
+      font-size: 0.88rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* SECTION STYLING */
+
+    section {
+      margin-bottom: 22px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-main);
+    }
+
+    .section-pill {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      opacity: 0.8;
+    }
+
+    .section-line {
+      width: 50px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), #93c5fd);
+      margin-bottom: 12px;
+    }
+
+    .section-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      padding: 14px 16px 12px;
+    }
+
+    .summary-text {
+      font-size: 0.97rem;
+      color: var(--text-main);
+    }
+
+    .summary-text strong {
+      font-weight: 600;
+    }
+
+    /* EXPERIENCE TIMELINE */
+
+    .timeline {
+      position: relative;
+      margin: 0;
+      padding: 4px 0 0 0;
+      list-style: none;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent-strong), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 32px;
+      padding-bottom: 16px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 4px;
+    }
+
+    .timeline-bullet {
+      position: absolute;
+      left: 3px;
+      top: 4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .exp-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 10px 12px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 4px;
+    }
+
+    .exp-role {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .exp-org {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .exp-meta {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.03);
+    }
+
+    .exp-bullets {
+      margin: 6px 0 0 0;
+      padding-left: 18px;
+      font-size: 0.93rem;
+      color: var(--text-main);
+    }
+
+    .exp-bullets li {
+      margin-bottom: 4px;
+    }
+
+    /* PROJECTS */
+
+    .project-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.94rem;
+    }
+
+    .project {
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      background: rgba(248, 250, 252, 0.8);
+      margin-bottom: 10px;
+    }
+
+    .project-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .project-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      opacity: 0.85;
+    }
+
+    .project ul {
+      margin: 4px 0 0 0;
+      padding-left: 17px;
+    }
+
+    .project ul li {
+      margin-bottom: 3px;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 8px;
+      font-size: 0.94rem;
+    }
+
+    .skill-item {
+      background: rgba(248, 250, 252, 0.95);
+      border-radius: 999px;
+      padding: 5px 10px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .skill-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .skill-text {
+      color: var(--text-main);
+    }
+
+    /* EDUCATION */
+
+    .education-item {
+      padding: 8px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      background: rgba(248, 250, 252, 0.8);
+      margin-bottom: 8px;
+      font-size: 0.94rem;
+    }
+
+    .edu-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 4px;
+    }
+
+    .edu-degree {
+      font-weight: 600;
+    }
+
+    .edu-inst {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .edu-meta {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      padding-top: 2px;
+    }
+
+    .edu-thesis {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* REFERENCES */
+
+    .references p {
+      margin: 0 0 7px;
+      font-size: 0.94rem;
+    }
+
+    .references strong {
+      font-weight: 600;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 640px) {
+      .cv-shell {
+        padding: 22px 16px 20px;
+        border-radius: 18px;
+      }
+
+      header.cv-header {
+        align-items: flex-start;
+      }
+
+      .profile-pic {
+        flex: 0 0 90px;
+      }
+
+      .profile-pic img {
+        width: 90px;
+        height: 90px;
+      }
+
+      .name {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .cv-shell {
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
+      }
+      .cv-shell::before {
+        display: none;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="cv-shell">
+      <div class="cv-inner">
+        <!-- HEADER -->
+        <header class="cv-header">
+          <div class="profile-pic">
+            <div class="profile-pic-inner">
+              <!-- Replace so.jpg with your actual image file -->
+              <img src="so.jpg" alt="Portrait of Said Obakrim" />
+            </div>
+          </div>
+          <div class="header-main">
+            <h1 class="name">
+              SAID&nbsp;OBAKRIM
+          
+            </h1>
+            <div class="title-pill">Statistician · Research Data Scientist</div>
+            <div class="contact">
+              <div class="contact-item">
+                <span class="contact-label">Location</span>
+                <span>Lausanne, Switzerland</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Email</span>
+                <a href="mailto:said.obakrim@unil.ch">said.obakrim@unil.ch</a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/sobakrim" target="_blank" rel="noreferrer">
+                  github.com/sobakrim
+                </a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Homepage</span>
+                <a href="https://wp.unil.ch/gaia/team/said-obakrim" target="_blank" rel="noreferrer">
+                  wp.unil.ch/gaia/team/said-obakrim
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- SUMMARY -->
+        <section>
+          <div class="section-header">
+            <div class="section-title">Summary</div>
+            <div class="section-pill">Profile</div>
+          </div>
+          <div class="section-line"></div>
+          <div class="section-card">
+            <p class="summary-text">
+              I am a statistician with over six years of research experience working with
+              practitioners in oceanography, agriculture, and insurance. My work is shared as
+              open-source Python and R packages and communicated through peer-reviewed
+              publications and talks at international conferences.
+            </p>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+          <div class="section-header">
+            <div class="section-title">Experience</div>
+            <div class="section-pill">Academic &amp; Research</div>
+          </div>
+          <div class="section-line"></div>
+          <div class="section-card">
+            <ul class="timeline">
+              <!-- FNS Senior Researcher -->
+              <li class="timeline-item">
+                <div class="timeline-bullet"></div>
+                <div class="exp-card">
+                  <div class="exp-header">
+                    <div>
+                      <div class="exp-role">FNS Senior Researcher</div>
+                      <div class="exp-org">University of Lausanne · Switzerland</div>
+                    </div>
+                    <div class="exp-meta">2024–2025+</div>
+                  </div>
+                  <ul class="exp-bullets">
+                    <li>
+                      Combined ML and geostatistics for fast space–time simulation of
+                      temperature in Switzerland to support climate risk analysis.
+                    </li>
+                    <li>
+                      Delivered optimized code in Python suitable for large-scale climate
+                      applications.
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- Postdoc INRAE -->
+              <li class="timeline-item">
+                <div class="timeline-bullet"></div>
+                <div class="exp-card">
+                  <div class="exp-header">
+                    <div>
+                      <div class="exp-role">Postdoctoral Researcher – Weather Emulator</div>
+                      <div class="exp-org">INRAE · France</div>
+                    </div>
+                    <div class="exp-meta">2022–2024</div>
+                  </div>
+                  <ul class="exp-bullets">
+                    <li>
+                      Created <code>MSTWeatherGen</code>, an R package for simulating
+                      multivariate weather data across France.
+                    </li>
+                    <li>
+                      Package adopted by INRAE for operational use in epidemiological
+                      surveillance and wildfire risk assessment.
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- PhD -->
+              <li class="timeline-item">
+                <div class="timeline-bullet"></div>
+                <div class="exp-card">
+                  <div class="exp-header">
+                    <div>
+                      <div class="exp-role">PhD – Coastal Climate Modeling</div>
+                      <div class="exp-org">Univ. Rennes 1 &amp; Ifremer · France</div>
+                    </div>
+                    <div class="exp-meta">2019–2022</div>
+                  </div>
+                  <ul class="exp-bullets">
+                    <li>
+                      Developed hybrid ML–statistical models for coastal wave forecasting
+                      and downscaling.
+                    </li>
+                    <li>
+                      Published peer-reviewed articles and presented at international
+                      conferences.
+                    </li>
+                    <li>
+                      Trained Bachelor and MSc students in statistics and machine learning
+                      using Python/R.
+                    </li>
+                    <li>
+                      Supervised one MSc student on deep learning for wave forecasting
+                      (<a
+                        href="https://ascmo.copernicus.org/articles/8/83/2022/"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        see publication
+                      </a>).
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+          <div class="section-header">
+            <div class="section-title">Selected Projects</div>
+            <div class="section-pill">Highlights</div>
+          </div>
+          <div class="section-line"></div>
+          <div class="section-card">
+            <ul class="project-list">
+              <li class="project">
+                <div class="project-title-row">
+                  <div class="project-title">MSTWeatherGen</div>
+                  <div class="project-tag">R package</div>
+                </div>
+                <ul>
+                  <li>
+                    Open-source R package for simulating realistic multiple weather variables
+                    in space and time.
+                  </li>
+                  <li>
+                    Used for epidemiological surveillance and risk assessment applications.
+                  </li>
+                  <li>
+                    Package website:
+                    <a
+                      href="https://sobakrim.github.io/MSTWeatherGen/index.html"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      sobakrim.github.io/MSTWeatherGen
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="project">
+                <div class="project-title-row">
+                  <div class="project-title">CNN–LSTM Wave Forecast Model</div>
+                  <div class="project-tag">Deep learning</div>
+                </div>
+                <ul>
+                  <li>
+                    Deep-learning model for near-shore wave height forecasting.
+                  </li>
+                  <li>
+                    Python code:
+                    <a
+                      href="https://github.com/sobakrim/Two-stage-CNN-LSTM-"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      github.com/sobakrim/Two-stage-CNN-LSTM-
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="project">
+                <div class="project-title-row">
+                  <div class="project-title">
+                    Insurance Claims &amp; Climate (ongoing, ECAB/ECCE)
+                  </div>
+                  <div class="project-tag">Climate risk</div>
+                </div>
+                <ul>
+                  <li>
+                    Detect trends in claims evolution in the context of climate change.
+                  </li>
+                  <li>
+                    Damage-function modeling for property claims.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- TECHNICAL SKILLS -->
+        <section>
+          <div class="section-header">
+            <div class="section-title">Technical Skills</div>
+            <div class="section-pill">Toolbox</div>
+          </div>
+          <div class="section-line"></div>
+          <div class="section-card">
+            <div class="skills-grid">
+              <div class="skill-item">
+                <span class="skill-label">Programming:</span>
+                <span class="skill-text">Python, R, Git</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-label">ML &amp; Statistics:</span>
+                <span class="skill-text">
+                  Regression &amp; classification, stochastic simulation, spatio-temporal
+                  modeling, deep learning (TensorFlow / Keras)
+                </span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-label">Languages:</span>
+                <span class="skill-text">
+                  Amazigh (native), Arabic, French, English
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section>
+          <div class="section-header">
+            <div class="section-title">Education</div>
+            <div class="section-pill">Degrees</div>
+          </div>
+          <div class="section-line"></div>
+          <div class="section-card">
+            <div class="education-item">
+              <div class="edu-header">
+                <div>
+                  <div class="edu-degree">
+                    PhD in Statistics &amp; Machine Learning
+                  </div>
+                  <div class="edu-inst">University of Rennes 1 · France</div>
+                </div>
+                <div class="edu-meta">2019–2022</div>
+              </div>
+              <div class="edu-thesis">
+                Thesis: Statistics and machine-learning downscaling for coastal climate change
+              </div>
+            </div>
+
+            <div class="education-item">
+              <div class="edu-header">
+                <div>
+                  <div class="edu-degree">
+                    MSc in Statistics &amp; Econometrics
+                  </div>
+                  <div class="edu-inst">Mohammed V University · Morocco</div>
+                </div>
+                <div class="edu-meta">2017–2019</div>
+              </div>
+            </div>
+
+            <div class="education-item">
+              <div class="edu-header">
+                <div>
+                  <div class="edu-degree">BSc in Mathematics</div>
+                  <div class="edu-inst">Ibn Zohr University · Morocco</div>
+                </div>
+                <div class="edu-meta">2013–2017</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- REFERENCES -->
+        <section>
+          <div class="section-header">
+            <div class="section-title">References</div>
+            <div class="section-pill">On request</div>
+          </div>
+          <div class="section-line"></div>
+          <div class="section-card">
+            <div class="references">
+              <p>
+                <strong>Dr. Nicolas Raillard</strong> (IFREMER)<br />
+                <a href="mailto:nicolas.raillard@ifremer.fr">nicolas.raillard@ifremer.fr</a>
+              </p>
+              <p>
+                <strong>Dr. Denis Allard</strong> (INRAE)<br />
+                <a href="mailto:denis.allard@inrae.fr">denis.allard@inrae.fr</a>
+              </p>
+              <p>
+                <strong>Prof. Grégoire Mariéthoz</strong> (University of Lausanne)<br />
+                <a href="mailto:gregoire.mariethoz@unil.ch">
+                  gregoire.mariethoz@unil.ch
+                </a>
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
