@@ -11,11 +11,13 @@
       --accent-strong: rgba(23, 105, 255, 0.16);
       --bg: #f3f5fb;
       --card-bg: #ffffff;
+      --block-bg: #f9fbff;
       --text-main: #1f2933;
       --text-muted: #6b7280;
       --border-soft: #e0e6f0;
       --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.12);
       --radius-lg: 18px;
+      --radius-md: 14px;
       --radius-pill: 999px;
       --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -23,6 +25,9 @@
 
     * {
       box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -36,16 +41,82 @@
 
     .page {
       max-width: 900px;
-      margin: 32px auto;
-      padding: 16px;
+      margin: 40px auto;
+      padding: 0 16px 40px;
+    }
+
+    /* Download bar & button */
+    .download-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .download-btn {
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--accent), #3b82f6);
+      color: #ffffff;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .download-btn:hover {
+      opacity: 0.96;
+      transform: translateY(-1px);
+    }
+
+    .download-btn span.icon {
+      font-size: 1rem;
+    }
+
+    /* Quick navigation / section chips */
+    .section-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.8rem;
+    }
+
+    .section-nav-btn {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 4px 10px;
+      cursor: pointer;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.78rem;
+    }
+
+    .section-nav-btn:hover {
+      background: var(--accent-soft);
+    }
+
+    .section-nav-btn .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
     }
 
     .cv-shell {
       background: linear-gradient(135deg, #ffffff 0%, #f9fbff 40%, #ffffff 100%);
-      border-radius: 24px;
+      border-radius: 30px;
       box-shadow: var(--shadow-soft);
-      padding: 30px 26px 28px;
       border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 28px 24px 22px;
       position: relative;
       overflow: hidden;
     }
@@ -69,35 +140,49 @@
     header.cv-header {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 22px;
       align-items: center;
       border-bottom: 1px solid var(--border-soft);
-      padding-bottom: 20px;
-      margin-bottom: 20px;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
     }
 
     .profile-pic {
-      flex: 0 0 110px;
+      flex: 0 0 112px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
-    .profile-pic-inner {
-      padding: 3px;
+    .profile-pic-orbit {
+      width: 112px;
+      height: 112px;
       border-radius: 50%;
-      background: conic-gradient(
-        from 160deg,
-        rgba(23, 105, 255, 0.3),
-        rgba(129, 140, 248, 0.4),
-        rgba(59, 130, 246, 0.5),
-        rgba(23, 105, 255, 0.3)
-      );
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.9), transparent 60%),
+        conic-gradient(
+          from 160deg,
+          rgba(23, 105, 255, 0.3),
+          rgba(129, 140, 248, 0.4),
+          rgba(59, 130, 246, 0.5),
+          rgba(23, 105, 255, 0.3)
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.25);
+    }
+
+    .profile-pic-inner {
+      border-radius: 50%;
+      padding: 3px;
+      background: #f9fafb;
     }
 
     .profile-pic img {
-      width: 104px;
-      height: 104px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       object-fit: cover;
       display: block;
@@ -105,61 +190,68 @@
     }
 
     .header-main {
-      flex: 1 1 240px;
+      flex: 1 1 260px;
       min-width: 0;
     }
 
-    .name {
-      font-size: 2rem;
-      font-weight: 750;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      margin: 0;
+    .name-row {
       display: flex;
       flex-wrap: wrap;
-      align-items: baseline;
+      align-items: flex-end;
       gap: 10px;
     }
 
+    .name {
+      font-size: 2.15rem;
+      font-weight: 780;
+      margin: 0;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+
     .name span {
-      font-weight: 300;
-      font-size: 0.95rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .item-tagso {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 0.75rem;
+    }
+
+    .item-tago {
       padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.04);
-      color: var(--text-muted);
-    }
-
-    .title-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-      padding: 4px 12px;
       border-radius: var(--radius-pill);
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
       background: var(--accent-soft);
+      border: 1px solid var(--accent-strong);
       color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+    }
+    .item-tags {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 0.75rem;
     }
 
-    .title-pill::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
+    .item-tag {
+      padding: 2px 7px;
+      border-radius: var(--radius-pill);
+      background: #e0edff;
+      border: 1px solid rgba(191,219,254,0.9);
+      color: #1d4ed8;
     }
-
     .contact {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px 16px;
-      margin-top: 12px;
+      gap: 6px 14px;
+      margin-top: 11px;
       font-size: 0.9rem;
       color: var(--text-muted);
     }
@@ -169,14 +261,14 @@
       align-items: center;
       gap: 6px;
       padding: 4px 10px;
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       background: rgba(148, 163, 184, 0.06);
     }
 
     .contact-label {
       font-weight: 600;
       color: var(--text-main);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
     }
 
     a {
@@ -188,126 +280,114 @@
       text-decoration: underline;
     }
 
-    /* SECTION STYLING */
+    /* SECTIONS */
 
     section {
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .section-header {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
       gap: 8px;
       margin-bottom: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .section-header-left {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .section-title {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--text-main);
-    }
-
-    .section-pill {
-      font-size: 0.7rem;
-      text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--accent);
-      opacity: 0.8;
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .section-line {
-      width: 50px;
-      height: 3px;
+    .section-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), #93c5fd);
-      margin-bottom: 12px;
+      background: var(--accent);
+    }
+
+    .section-toggle-icon {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
+    }
+
+    section.collapsed .section-toggle-icon {
+      transform: rotate(-90deg);
+    }
+
+    .section-body {
+      display: flex;
+      gap: 10px;
+      transition: max-height 0.2s ease, opacity 0.2s ease;
+    }
+
+    section.collapsed .section-body {
+      display: none;
+    }
+
+    .section-accent-bar {
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, var(--accent), #93c5fd);
+      opacity: 0.9;
+      margin-top: 2px;
     }
 
     .section-card {
+      flex: 1;
       background: rgba(255, 255, 255, 0.9);
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      padding: 14px 16px 12px;
+      border: 1px solid var(--border-soft);
+      padding: 13px 15px 11px;
     }
 
-    .summary-text {
+    .section-card.compact {
+      padding: 10px 13px 10px;
+    }
+
+    .item-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 8px 10px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      margin-bottom: 8px;
+    }
+
+    .item-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+
+    .item-title {
+      font-weight: 600;
       font-size: 0.97rem;
       color: var(--text-main);
     }
 
-    .summary-text strong {
-      font-weight: 600;
-    }
-
-    /* EXPERIENCE TIMELINE */
-
-    .timeline {
-      position: relative;
-      margin: 0;
-      padding: 4px 0 0 0;
-      list-style: none;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 10px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--accent-strong), transparent);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 32px;
-      padding-bottom: 16px;
-    }
-
-    .timeline-item:last-child {
-      padding-bottom: 4px;
-    }
-
-    .timeline-bullet {
-      position: absolute;
-      left: 3px;
-      top: 4px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #ffffff;
-      border: 2px solid var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-soft);
-    }
-
-    .exp-card {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 10px 12px;
-      border: 1px solid rgba(226, 232, 240, 0.9);
-    }
-
-    .exp-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 4px;
-    }
-
-    .exp-role {
-      font-weight: 600;
-      font-size: 0.98rem;
-    }
-
-    .exp-org {
+    .item-subtitle {
       font-size: 0.92rem;
       color: var(--text-muted);
     }
 
-    .exp-meta {
+    .item-meta {
       font-size: 0.86rem;
       color: var(--text-muted);
       padding: 2px 8px;
@@ -315,207 +395,220 @@
       background: rgba(15, 23, 42, 0.03);
     }
 
-    .exp-bullets {
-      margin: 6px 0 0 0;
-      padding-left: 18px;
+    .item-body {
       font-size: 0.93rem;
+      margin-top: 4px;
       color: var(--text-main);
     }
 
-    .exp-bullets li {
-      margin-bottom: 4px;
-    }
-
-    /* PROJECTS */
-
-    .project-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      font-size: 0.94rem;
-    }
-
-    .project {
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px dashed rgba(148, 163, 184, 0.6);
-      background: rgba(248, 250, 252, 0.8);
-      margin-bottom: 10px;
-    }
-
-    .project-title-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
-
-    .project-title {
-      font-weight: 600;
-      font-size: 0.98rem;
-    }
-
-    .project-tag {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-      opacity: 0.85;
-    }
-
-    .project ul {
+    .item-body ul {
       margin: 4px 0 0 0;
-      padding-left: 17px;
+      padding-left: 18px;
     }
 
-    .project ul li {
+    .item-body li {
       margin-bottom: 3px;
     }
 
-    /* SKILLS */
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 8px;
+    .ref-line {
+      margin-bottom: 6px;
       font-size: 0.94rem;
     }
 
-    .skill-item {
-      background: rgba(248, 250, 252, 0.95);
-      border-radius: 999px;
-      padding: 5px 10px;
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
+    /* Details toggles (experience, projects, publications) */
+
+.more-details {
+  margin-top: 4px;
+  font-size: 0.88rem;
+  color: var(--text-main);  /* use main text color, not muted */
+}
+
+.more-details p {
+  margin: 4px 0 0 0;
+}
+
+/* Make publication blurbs look like a clear callout */
+#publications .more-details {
+  margin-top: 6px;
+  padding: 6px 10px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--text-main);
+}
+
+.more-toggle {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  border: none;
+  background: var(--accent-soft);
+  color: var(--accent);
+  cursor: pointer;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+
+  display: block;          /* 👈 forces it to start on a new line */
+}
+
+
+    .more-toggle:hover {
+      text-decoration: underline;
     }
 
-    .skill-label {
-      font-weight: 600;
-      font-size: 0.9rem;
+    /* manual page-break helper */
+    .page-break {
+      height: 0;
+      margin: 0;
+      border: 0;
+      page-break-before: always;
     }
-
-    .skill-text {
-      color: var(--text-main);
-    }
-
-    /* EDUCATION */
-
-    .education-item {
-      padding: 8px 10px;
-      border-radius: 14px;
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      background: rgba(248, 250, 252, 0.8);
-      margin-bottom: 8px;
-      font-size: 0.94rem;
-    }
-
-    .edu-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 4px;
-    }
-
-    .edu-degree {
-      font-weight: 600;
-    }
-
-    .edu-inst {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .edu-meta {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      padding-top: 2px;
-    }
-
-    .edu-thesis {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      font-style: italic;
-    }
-
-    /* REFERENCES */
-
-    .references p {
-      margin: 0 0 7px;
-      font-size: 0.94rem;
-    }
-
-    .references strong {
-      font-weight: 600;
-    }
-
-    /* RESPONSIVE */
 
     @media (max-width: 640px) {
+      .page {
+        margin: 22px auto 32px;
+      }
       .cv-shell {
         padding: 22px 16px 20px;
-        border-radius: 18px;
+        border-radius: 22px;
       }
-
       header.cv-header {
         align-items: flex-start;
       }
-
       .profile-pic {
         flex: 0 0 90px;
       }
-
+      .profile-pic-orbit {
+        width: 96px;
+        height: 96px;
+      }
       .profile-pic img {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
       }
-
       .name {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
       }
-    }
-
-    @media print {
-      body {
-        background: #ffffff;
+      .section-body {
+        gap: 6px;
       }
-      .cv-shell {
-        box-shadow: none;
-        border-radius: 0;
-        margin: 0;
-      }
-      .cv-shell::before {
+      .section-accent-bar {
         display: none;
       }
-      a {
-        text-decoration: none;
-      }
     }
+
+@media print {
+  body {
+    background: var(--bg);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    margin: 0 auto;  /* center horizontally on the sheet */
+    padding: 0;
+    max-width: 900px;
+  }
+
+  .cv-shell {
+    box-shadow: none;
+  }
+
+  .cv-shell::before {
+    display: none;
+  }
+
+  .download-bar,
+  .section-nav {
+    display: none !important;  /* hide controls in the PDF */
+  }
+
+  /* Force all sections open in print */
+  section .section-body {
+    display: flex !important;
+  }
+
+  /* Show details everywhere and make them dark text... */
+  .more-details {
+    display: block !important;
+    color: var(--text-main) !important;
+  }
+
+  /* ...except for publications, where we hide the extra text */
+  #publications .more-details {
+    display: none !important;
+  }
+
+  /* Hide all "More..." buttons in PDF */
+  .more-toggle {
+    display: none !important;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+
   </style>
 </head>
 <body>
   <div class="page">
-    <div class="cv-shell">
+    <div class="download-bar">
+      <button class="download-btn" onclick="window.print()">
+        <span class="icon">⬇️</span>
+        <span>Download PDF</span>
+      </button>
+
+      <div class="section-nav">
+        <button class="section-nav-btn" data-target="#summary">
+          <span class="dot"></span> Summary
+        </button>
+        <button class="section-nav-btn" data-target="#experience">
+          <span class="dot"></span> Experience
+        </button>
+        <button class="section-nav-btn" data-target="#projects">
+          <span class="dot"></span> Projects
+        </button>
+        <button class="section-nav-btn" data-target="#skills">
+          <span class="dot"></span> Skills
+        </button>
+        <button class="section-nav-btn" data-target="#education">
+          <span class="dot"></span> Education
+        </button>
+        <button class="section-nav-btn" data-target="#references">
+          <span class="dot"></span> References
+        </button>
+        <button class="section-nav-btn" data-target="#publications">
+          <span class="dot"></span> Publications
+        </button>
+      </div>
+    </div>
+
+    <div class="cv-shell" id="cv-root">
       <div class="cv-inner">
         <!-- HEADER -->
         <header class="cv-header">
           <div class="profile-pic">
-            <div class="profile-pic-inner">
-              <!-- Replace so.jpg with your actual image file -->
-              <img src="so.jpg" alt="Portrait of Said Obakrim" />
+            <div class="profile-pic-orbit">
+              <div class="profile-pic-inner">
+                <img src="so.jpg" alt="Portrait of Said Obakrim" />
+              </div>
             </div>
           </div>
           <div class="header-main">
-            <h1 class="name">
-              SAID&nbsp;OBAKRIM
-          
-            </h1>
-            <div class="title-pill">Statistician · Research Data Scientist</div>
+            <div class="name-row">
+              <h1 class="name"><span>SAID&nbsp;OBAKRIM</span></h1>
+            </div>
+            <div class="item-tagso">
+              <span class="item-tago">STATISTICIAN &amp; RESEARCH DATA SCIENTIST</span>
+            </div>
             <div class="contact">
               <div class="contact-item">
                 <span class="contact-label">Location</span>
@@ -523,7 +616,7 @@
               </div>
               <div class="contact-item">
                 <span class="contact-label">Email</span>
-                <a href="mailto:said.obakrim@unil.ch">said.obakrim@unil.ch</a>
+                <a href="mailto:said.obakrim@unil.ch">saidobak@gmail.com</a>
               </div>
               <div class="contact-item">
                 <span class="contact-label">GitHub</span>
@@ -541,304 +634,655 @@
           </div>
         </header>
 
-        <!-- SUMMARY -->
-        <section>
+        <!-- SUMMARY (Page 1) -->
+        <section id="summary">
           <div class="section-header">
-            <div class="section-title">Summary</div>
-            <div class="section-pill">Profile</div>
+            <div class="section-header-left">
+              <div class="section-dot"></div>
+              <div class="section-title">Summary</div>
+            </div>
+            <div class="section-toggle-icon">▾</div>
           </div>
-          <div class="section-line"></div>
-          <div class="section-card">
-            <p class="summary-text">
-              I am a statistician with over six years of research experience working with
-              practitioners in oceanography, agriculture, and insurance. My work is shared as
-              open-source Python and R packages and communicated through peer-reviewed
-              publications and talks at international conferences.
-            </p>
+          <div class="section-body">
+            <div class="section-accent-bar"></div>
+            <div class="section-card">
+              <div class="item-card">
+                <div class="item-body">
+                  <p>
+                    I am a statistician and research data scientist specializing in space–time modeling of climate and environmental variables, with a growing focus on extremes and climate risk. My work combines geostatistics, Gaussian random fields and machine learning to build stochastic models and simulators for weather and climate fields, with applications to risk assessment and impact studies. I particularly enjoy working at the interface between methodological research and operational use.
+                  </p>
+                  <div class="item-tags">
+                    <span class="item-tag">Space–time statistics</span>
+                    <span class="item-tag">Climate &amp; weather modeling</span>
+                    <span class="item-tag">Extremes</span>
+                    <span class="item-tag">Gaussian random fields</span>
+                    <span class="item-tag">Machine learning</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        <!-- EXPERIENCE -->
-        <section>
+        <!-- EXPERIENCE (Page 1) -->
+        <section id="experience">
           <div class="section-header">
-            <div class="section-title">Experience</div>
-            <div class="section-pill">Academic &amp; Research</div>
+            <div class="section-header-left">
+              <div class="section-dot"></div>
+              <div class="section-title">Experience</div>
+            </div>
+            <div class="section-toggle-icon">▾</div>
           </div>
-          <div class="section-line"></div>
-          <div class="section-card">
-            <ul class="timeline">
+          <div class="section-body">
+            <div class="section-accent-bar"></div>
+            <div class="section-card compact">
               <!-- FNS Senior Researcher -->
-              <li class="timeline-item">
-                <div class="timeline-bullet"></div>
-                <div class="exp-card">
-                  <div class="exp-header">
-                    <div>
-                      <div class="exp-role">FNS Senior Researcher</div>
-                      <div class="exp-org">University of Lausanne · Switzerland</div>
-                    </div>
-                    <div class="exp-meta">2024–2025+</div>
+              <div class="item-card">
+                <div class="item-header">
+                  <div>
+                    <div class="item-title">FNS Senior Researcher</div>
+                    <div class="item-subtitle">University of Lausanne · Switzerland</div>
                   </div>
-                  <ul class="exp-bullets">
+                  <div class="item-meta">2024–2025+</div>
+                </div>
+                <div class="item-tags">
+                  <span class="item-tag">Extremes</span>
+                  <span class="item-tag">Spatio-temporal modeling</span>
+                  <span class="item-tag">Python / JAX</span>
+                </div>
+                <div class="item-body">
+                  <ul>
                     <li>
-                      Combined ML and geostatistics for fast space–time simulation of
-                      temperature in Switzerland to support climate risk analysis.
-                    </li>
-                    <li>
-                      Delivered optimized code in Python suitable for large-scale climate
-                      applications.
+                      Develop hybrid geostatistical and machine-learning models for fast space–time simulations of temperature in Switzerland, aimed at climate risk and impact applications.
                     </li>
                   </ul>
+                  <div class="more-details" hidden>
+                    <ul>
+                      <li>
+                        Work on a general framework for simulating weather and climate fields, including extreme events, in a latent Gaussian setting.
+                      </li>
+                      <li>
+                        Implement high-performance Python/JAX code for large ensembles of simulations.
+                      </li>
+                      <li>
+                        Supervise a PhD student to apply the methodology to precipitation over Switzerland.
+                      </li>
+                    </ul>
+                  </div>
+                  <button class="more-toggle">More details ▾</button>
                 </div>
-              </li>
+              </div>
 
               <!-- Postdoc INRAE -->
-              <li class="timeline-item">
-                <div class="timeline-bullet"></div>
-                <div class="exp-card">
-                  <div class="exp-header">
-                    <div>
-                      <div class="exp-role">Postdoctoral Researcher – Weather Emulator</div>
-                      <div class="exp-org">INRAE · France</div>
-                    </div>
-                    <div class="exp-meta">2022–2024</div>
+              <div class="item-card">
+                <div class="item-header">
+                  <div>
+                    <div class="item-title">Postdoctoral Researcher – Weather Emulator</div>
+                    <div class="item-subtitle">INRAE · France</div>
                   </div>
-                  <ul class="exp-bullets">
+                  <div class="item-meta">2022–2024</div>
+                </div>
+                <div class="item-tags">
+                  <span class="item-tag">Stochastic weather generator</span>
+                  <span class="item-tag">Latent Gaussian models</span>
+                  <span class="item-tag">R package</span>
+                </div>
+                <div class="item-body">
+                  <ul>
                     <li>
-                      Created <code>MSTWeatherGen</code>, an R package for simulating
-                      multivariate weather data across France.
-                    </li>
-                    <li>
-                      Package adopted by INRAE for operational use in epidemiological
-                      surveillance and wildfire risk assessment.
+                      Designed and implemented <code>MSTWeatherGen</code>, an open-source R package for multivariate space–time weather simulation using a latent Gaussian framework.
                     </li>
                   </ul>
+                  <div class="more-details" hidden>
+                    <ul>
+                      <li>
+                        Calibrated and validated the generator in the PACA region in France and multiple variables (precipitation, temperature, etc.) to support epidemiological and wildfire risk studies.
+                      </li>
+                      <li>
+                        Package adopted by INRAE for operational use in epidemiological surveillance.
+                      </li>
+                    </ul>
+                  </div>
+                  <button class="more-toggle">More details ▾</button>
                 </div>
-              </li>
+              </div>
 
               <!-- PhD -->
-              <li class="timeline-item">
-                <div class="timeline-bullet"></div>
-                <div class="exp-card">
-                  <div class="exp-header">
-                    <div>
-                      <div class="exp-role">PhD – Coastal Climate Modeling</div>
-                      <div class="exp-org">Univ. Rennes 1 &amp; Ifremer · France</div>
-                    </div>
-                    <div class="exp-meta">2019–2022</div>
+              <div class="item-card">
+                <div class="item-header">
+                  <div>
+                    <div class="item-title">PhD – Coastal Climate Modeling</div>
+                    <div class="item-subtitle">Univ. Rennes 1 &amp; Ifremer · France</div>
                   </div>
-                  <ul class="exp-bullets">
+                  <div class="item-meta">2019–2022</div>
+                </div>
+                <div class="item-tags">
+                  <span class="item-tag">Coastal climate</span>
+                  <span class="item-tag">Deep learning</span>
+                  <span class="item-tag">Downscaling</span>
+                  <span class="item-tag">Time series</span>
+                </div>
+                <div class="item-body">
+                  <ul>
                     <li>
-                      Developed hybrid ML–statistical models for coastal wave forecasting
-                      and downscaling.
+                      Developed hybrid statistical and deep-learning models (CNN–LSTM, etc.) for coastal wave forecasting and downscaling.
                     </li>
+                  </ul>
+                  <div class="more-details" hidden>
+                    <ul>
+                      <li>
+                        Published peer-reviewed articles and presented results at international conferences in climate and environmental data science.
+                      </li>
+                      <li>
+                        Taught Bachelor and MSc students in statistics and machine learning using Python and R, and supervised an MSc thesis on wave forecasting with deep learning.
+                      </li>
+                    </ul>
+                  </div>
+                  <button class="more-toggle">More details ▾</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Page 1 → Page 2 -->
+        <div class="page-break"></div>
+
+        <!-- SELECTED RESEARCH PROJECTS (Page 2) -->
+        <section id="projects">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="section-dot"></div>
+              <div class="section-title">Selected Research Projects</div>
+            </div>
+            <div class="section-toggle-icon">▾</div>
+          </div>
+          <div class="section-body">
+            <div class="section-accent-bar"></div>
+            <div class="section-card compact">
+                          <!-- Framework project -->
+              <div class="item-card">
+                <div class="item-header">
+                  <div class="item-title">
+                    Framework for Simulating Weather &amp; Climate Fields
+                  </div>
+                  <div class="item-meta">Current work</div>
+                </div>
+                <div class="item-body">
+                  <ul>
                     <li>
-                      Published peer-reviewed articles and presented at international
-                      conferences.
+                      Developing a general framework for simulating climate and weather variables in space and time, conditionally on large-scale circulation patterns.
                     </li>
+                  </ul>
+                  <div class="more-details" hidden>
+                    <ul>
+                      <li>
+                        Extending the framework to represent extreme events and their spatial and temporal dependence.
+                      </li>
+                    </ul>
+                  </div>
+                  <button class="more-toggle">More details ▾</button>
+                </div>
+              </div>
+
+              <!-- MSTWeatherGen project -->
+              <div class="item-card">
+                <div class="item-header">
+                  <div class="item-title">MSTWeatherGen – Multivariate Space–Time Weather Generator</div>
+                  <div class="item-meta">R package</div>
+                </div>
+                <div class="item-body">
+                  <ul>
                     <li>
-                      Trained Bachelor and MSc students in statistics and machine learning
-                      using Python/R.
+                      Open-source R package for simulating multiple weather variables jointly in space and time using a latent Gaussian approach.
                     </li>
+                  </ul>
+                  <div class="more-details" hidden>
+                    <ul>
+                      <li>
+                        Preserves spatial dependence, temporal structure and cross-variable relationships, making it suitable for impact and risk modeling.
+                      </li>
+                      <li>
+                        Used at INRAE for epidemiological surveillance.
+                        Package website:
+                        <a
+                          href="https://sobakrim.github.io/MSTWeatherGen/index.html"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          sobakrim.github.io/MSTWeatherGen
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <button class="more-toggle">More details ▾</button>
+                </div>
+              </div>
+
+              <!-- CNN–LSTM project -->
+              <div class="item-card">
+                <div class="item-header">
+                  <div class="item-title">CNN–LSTM Wave Forecast Model</div>
+                  <div class="item-meta">Deep learning</div>
+                </div>
+                <div class="item-body">
+                  <ul>
                     <li>
-                      Supervised one MSc student on deep learning for wave forecasting
-                      (<a
-                        href="https://ascmo.copernicus.org/articles/8/83/2022/"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        see publication
-                      </a>).
+                      Two-stage CNN–LSTM model for near-shore significant wave height forecasting from large-scale atmospheric and oceanic drivers.
+                    </li>
+                  </ul>
+                  <div class="more-details" hidden>
+                    <ul>
+                      <li>
+                        Implemented training, evaluation and reproducible experiments in Python.
+                      </li>
+                      <li>
+                        Code available at:
+                        <a
+                          href="https://github.com/sobakrim/Two-stage-CNN-LSTM-"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          github.com/sobakrim/Two-stage-CNN-LSTM-
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <button class="more-toggle">More details ▾</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TECHNICAL SKILLS (Page 2) -->
+        <section id="skills">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="section-dot"></div>
+              <div class="section-title">Technical Skills</div>
+            </div>
+            <div class="section-toggle-icon">▾</div>
+          </div>
+          <div class="section-body">
+            <div class="section-accent-bar"></div>
+            <div class="section-card compact">
+              <div class="item-card">
+                <div class="item-header">
+                  <div class="item-title">Programming</div>
+                </div>
+                <div class="item-body">
+                  Python (JAX, scikit-learn, TensorFlow/Keras),<br />
+                  R (statistical modeling, spatial &amp; spatio-temporal analysis),<br />
+                  Git, Linux.
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="item-header">
+                  <div class="item-title">ML &amp; Statistics</div>
+                </div>
+                <div class="item-body">
+                  Regression &amp; classification · Quantile regression · Extreme value modeling ·
+                  Gaussian and latent Gaussian random fields · Spatio-temporal modeling · Stochastic simulation ·
+                  Deep learning.
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="item-header">
+                  <div class="item-title">Languages</div>
+                </div>
+                <div class="item-body">
+                  Amazigh (native), Arabic, French, English.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCATION (Page 2) -->
+        <section id="education">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="section-dot"></div>
+              <div class="section-title">Education</div>
+            </div>
+            <div class="section-toggle-icon">▾</div>
+          </div>
+          <div class="section-body">
+            <div class="section-accent-bar"></div>
+            <div class="section-card compact">
+              <div class="item-card">
+                <div class="item-header">
+                  <div>
+                    <div class="item-title">PhD in Statistics &amp; Machine Learning</div>
+                    <div class="item-subtitle">University of Rennes 1 · France</div>
+                  </div>
+                  <div class="item-meta">2019–2022</div>
+                </div>
+                <div class="item-body">
+                  Thesis: Statistical Downscaling and Climate Change in the Coastal Zone.
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="item-header">
+                  <div>
+                    <div class="item-title">MSc in Statistics &amp; Econometrics</div>
+                    <div class="item-subtitle">Mohammed V University · Morocco</div>
+                  </div>
+                  <div class="item-meta">2017–2019</div>
+                </div>
+              </div>
+
+              <div class="item-card">
+                <div class="item-header">
+                  <div>
+                    <div class="item-title">BSc in Mathematics</div>
+                    <div class="item-subtitle">Ibn Zohr University · Morocco</div>
+                  </div>
+                  <div class="item-meta">2013–2017</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Page 2 → Page 3 -->
+        <div class="page-break"></div>
+
+        <!-- REFERENCES (Page 3) -->
+        <section id="references">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="section-dot"></div>
+              <div class="section-title">References</div>
+            </div>
+            <div class="section-toggle-icon">▾</div>
+          </div>
+          <div class="section-body">
+            <div class="section-accent-bar"></div>
+            <div class="section-card compact">
+              <div class="item-card">
+                <div class="item-body">
+                  <div class="ref-line">
+                    <strong>Prof. Grégoire Mariéthoz</strong> (University of Lausanne)<br />
+                    <a href="mailto:gregoire.mariethoz@unil.ch">
+                      gregoire.mariethoz@unil.ch
+                    </a>
+                  </div>
+                  <div class="ref-line">
+                    <strong>Dr. Denis Allard</strong> (INRAE)<br />
+                    <a href="mailto:denis.allard@inrae.fr">denis.allard@inrae.fr</a>
+                  </div>
+                  <div class="ref-line">
+                    <strong>Dr. Nicolas Raillard</strong> (IFREMER)<br />
+                    <a href="mailto:nicolas.raillard@ifremer.fr">nicolas.raillard@ifremer.fr</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PUBLICATIONS (Page 3) -->
+        <section id="publications">
+          <div class="section-header">
+            <div class="section-header-left">
+              <div class="section-dot"></div>
+              <div class="section-title">Publications</div>
+            </div>
+            <div class="section-toggle-icon">▾</div>
+          </div>
+          <div class="section-body">
+            <div class="section-accent-bar"></div>
+            <div class="section-card compact">
+              <div class="item-card">
+                <div class="item-body">
+                  <ul>
+                    <li>
+                      Obakrim, S., Allard, D., Benoit, L. &amp; Mariéthoz, G. (2026+).
+                      <em>Combining machine learning quantile regression and Gaussian random fields: a general framework for modeling and simulating space-time processes.</em>
+                      <div class="more-details" hidden>
+                <p class="paper-summary">
+                  <strong>Summary.</strong>
+                  This work introduces a general framework that couples machine-learning-based
+                  quantile regression with latent Gaussian random fields to model and simulate
+                  space–time processes conditional on covariates. The approach is evaluated on
+                  synthetic experiments and a Swiss climate application.
+                </p>
+                <p class="paper-summary">
+                  <strong>Keywords.</strong>
+                  Quantile regression; Gaussian random fields; space–time processes; stochastic
+                  simulation; climate applications.
+                </p>
+                      </div>
+                      <button class="more-toggle">More about this paper ▾</button>
+                    </li>
+
+                    <li>
+                      Obakrim, S., Benoit, L. &amp; Allard, D. (2025).
+                      <em>A multivariate and space-time stochastic weather generator using a latent Gaussian framework.</em>
+                      Stoch Environ Res Risk Assess.
+                      <a href="https://doi.org/10.1007/s00477-024-02897-8" target="_blank" rel="noreferrer">
+                        https://doi.org/10.1007/s00477-024-02897-8
+                      </a>
+                      <div class="more-details" hidden>
+                   <p class="paper-summary">
+ <strong>Summary.</strong>
+                  Presents MSTWeatherGen, a multivariate space–time stochastic weather generator at
+                  daily resolution. Multiple variables (temperature, precipitation, wind speed,
+                  humidity, solar radiation) are modeled via a transformed multivariate Gaussian
+                  random field with a stationary, non-separable cross-covariance, combined with
+                  weather types to represent seasonality and circulation regimes. Applied over the
+                  Provence–Alpes–Côte d’Azur region, the generator reproduces a wide range of
+                  statistics, including non-linear indicators such as heat waves and fire weather
+                  indices.
+                </p>
+                <p class="paper-summary">
+                  <strong>Keywords.</strong>
+                  Stochastic weather generator; multivariate space–time model; latent Gaussian
+                  field; non-separable cross-covariance; weather types; fire weather
+                  index.
+                </p>
+                      </div>
+                      <button class="more-toggle">More about this paper ▾</button>
+                    </li>
+
+                    <li>
+                      Allard, D., Benoit, L., Obakrim, S. (2025).
+                      <em>Modeling and simulating spatio-temporal, multivariate and nonstationary Gaussian Random Fields: a Gaussian mixtures perspective.</em>
+                      <a href="https://hal.inrae.fr/hal-05034982v1" target="_blank" rel="noreferrer">
+                        https://hal.inrae.fr/hal-05034982v1
+                      </a>
+                      <div class="more-details" hidden>
+                <p class="paper-summary">
+                  <strong>Summary.</strong>
+                  Proposes a Gaussian-mixture representation to build flexible, nonstationary
+                  multivariate space–time Gaussian random fields. The paper discusses both modeling aspects and
+                  efficient simulation strategies for environmental and climate applications.
+                </p>
+                <p class="paper-summary">
+                  <strong>Keywords.</strong>
+                  Gaussian random fields; Gaussian mixtures; nonstationary covariance; multivariate
+                  space–time modeling; large-scale simulation; environmental applications.
+                </p>
+                      </div>
+                      <button class="more-toggle">More about this paper ▾</button>
+                    </li>
+
+                    <li>
+                      Alglave, B., Dufée, B., Obakrim, S., Thorson, J. T. (2024).
+                      <em>Empirical Orthogonal Functions for ecology.</em>
+                      <a href="https://hal.science/hal-04693871/" target="_blank" rel="noreferrer">
+                        https://hal.science/hal-04693871/
+                      </a>
+                      <div class="more-details" hidden>
+                <p class="paper-summary">
+                  <strong>Summary.</strong>
+                  Provides an accessible introduction to Empirical Orthogonal Functions (EOFs) for
+                  ecological applications, showing how EOFs can be used to extract dominant spatial
+                  and temporal patterns from high-dimensional ecological data. The paper discusses
+                  links with PCA, illustrates use cases on ecological time series and spatial
+                  distributions, and highlights interpretation issues and good practice.
+                </p>
+                <p class="paper-summary">
+                  <strong>Keywords.</strong>
+                  Empirical Orthogonal Functions; dimensionality reduction; ecological data;
+                  spatial–temporal patterns; multivariate analysis.
+                </p>
+                      </div>
+                      <button class="more-toggle">More about this paper ▾</button>
+                    </li>
+
+                    <li>
+                      Obakrim, S., Ailliot, P., Monbet, V., &amp; Raillard, N. (2024).
+                      <em>EM algorithm for generalized Ridge regression with spatial covariates.</em>
+                      Environmetrics, e2871.
+                      <a href="https://doi.org/10.1002/env.2871" target="_blank" rel="noreferrer">
+                        https://doi.org/10.1002/env.2871
+                      </a>
+                      <div class="more-details" hidden>
+                <p class="paper-summary">
+                  <strong>Summary.</strong>
+                  Develops an expectation–maximization algorithm for generalized Ridge regression
+                  where the prior covariance of the regression coefficients has a parametric
+                  structure (diagonal, Matérn, conditional autoregressive, etc.). The method
+                  jointly estimates regression and penalty parameters, ensuring that the
+                  regularization reflects spatial structure when covariates are spatially indexed.
+                  Performance is assessed in simulations and on an application to wave-height
+                  prediction from wind conditions.
+                </p>
+                <p class="paper-summary">
+                  <strong>Keywords.</strong>
+                  Generalized Ridge regression; EM algorithm; spatial structure; penalized
+                  regression; high-dimensional data; wave-height modeling.
+                </p>
+                      </div>
+                      <button class="more-toggle">More about this paper ▾</button>
+                    </li>
+
+                    <li>
+                      Obakrim, S., Ailliot, P., Monbet, V., &amp; Raillard, N. (2023).
+                      <em>Statistical modeling of the space–time relation between wind and significant wave height.</em>
+                      Advances in Statistical Climatology, Meteorology and Oceanography, 9(1), 67–81.
+                      <a href="https://doi.org/10.5194/ascmo-9-67-2023" target="_blank" rel="noreferrer">
+                        https://doi.org/10.5194/ascmo-9-67-2023
+                      </a>
+                      <div class="more-details" hidden>
+                <p class="paper-summary">
+                  <strong>Summary.</strong>
+                  Investigates the statistical relationship between North Atlantic wind fields and
+                  significant wave height at three locations (Gironde, English Channel, Gulf of
+                  Maine). The method defines local and global predictors to represent both wind
+                  seas and swells, then uses a regression-guided clustering to construct weather
+                  types and fits Ridge regressions in each type. The resulting transfer function
+                  achieves RMSE ≈ 0.3 m and provides interpretable information on the
+                  space–time wind–wave link.
+                </p>
+                <p class="paper-summary">
+                  <strong>Keywords.</strong>
+                  Wind–wave relationship; significant wave height; weather types; statistical
+                  downscaling; Ridge regression; North Atlantic.
+                </p>
+                      </div>
+                      <button class="more-toggle">More about this paper ▾</button>
+                    </li>
+
+                    <li>
+                      Obakrim, S., Monbet, V., Raillard, N., &amp; Ailliot, P. (2023).
+                      <em>Learning the spatiotemporal relationship between wind and significant wave height using deep learning.</em>
+                      Environmental Data Science, 2, e5.
+                      <a href="https://doi.org/10.1017/eds.2022.35" target="_blank" rel="noreferrer">
+                        https://doi.org/10.1017/eds.2022.35
+                      </a>
+                      <div class="more-details" hidden>
+                <p class="paper-summary">
+                  <strong>Summary.</strong>
+This work investigates the spatiotemporal relationship between North Atlantic wind and significant wave height at an off-shore location in the Bay of Biscay, using a two-stage deep learning model. The first step uses convolutional neural networks to extract the spatial features that contribute to wave heights. Then, long short-term memory is used to learn the long-term temporal dependencies between wind and waves.
+                </p>
+                <p class="paper-summary">
+                  <strong>Keywords.</strong>
+               Convolutional neural networks;
+                  long short-term memory;
+                significant wave height;
+                wind fields.
+                </p>
+                      </div>
+                      <button class="more-toggle">More about this paper ▾</button>
+                    </li>
+
+                    <li>
+                      Michel, M., Obakrim, S., Raillard, N., Ailliot, P., Monbet, V. (2022).
+                      <em>Deep learning for statistical downscaling of sea states.</em>
+                      Advances in Statistical Climatology, Meteorology and Oceanography, 8(1), 83–95.
+                      <a href="https://doi.org/10.5194/ascmo-8-83-2022" target="_blank" rel="noreferrer">
+                        https://doi.org/10.5194/ascmo-8-83-2022
+                      </a>
+                      <div class="more-details" hidden>
+                <p class="paper-summary">
+                  <strong>Summary.</strong>
+   Introduces a convolutional neural network for statistical downscaling of significant wave height from large-scale wind fields in the Bay of Biscay. The CNN-based model is compared with other statistical approaches and with the WAVEWATCH III hindcast
+                </p>
+                <p class="paper-summary">
+                  <strong>Keywords.</strong>
+                  Sea-state downscaling; convolutional neural networks; significant wave height;
+                  deep learning.
+                </p>
+                      </div>
+                      <button class="more-toggle">More about this paper ▾</button>
                     </li>
                   </ul>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section>
-          <div class="section-header">
-            <div class="section-title">Selected Projects</div>
-            <div class="section-pill">Highlights</div>
-          </div>
-          <div class="section-line"></div>
-          <div class="section-card">
-            <ul class="project-list">
-              <li class="project">
-                <div class="project-title-row">
-                  <div class="project-title">MSTWeatherGen</div>
-                  <div class="project-tag">R package</div>
-                </div>
-                <ul>
-                  <li>
-                    Open-source R package for simulating realistic multiple weather variables
-                    in space and time.
-                  </li>
-                  <li>
-                    Used for epidemiological surveillance and risk assessment applications.
-                  </li>
-                  <li>
-                    Package website:
-                    <a
-                      href="https://sobakrim.github.io/MSTWeatherGen/index.html"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      sobakrim.github.io/MSTWeatherGen
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="project">
-                <div class="project-title-row">
-                  <div class="project-title">CNN–LSTM Wave Forecast Model</div>
-                  <div class="project-tag">Deep learning</div>
-                </div>
-                <ul>
-                  <li>
-                    Deep-learning model for near-shore wave height forecasting.
-                  </li>
-                  <li>
-                    Python code:
-                    <a
-                      href="https://github.com/sobakrim/Two-stage-CNN-LSTM-"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      github.com/sobakrim/Two-stage-CNN-LSTM-
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="project">
-                <div class="project-title-row">
-                  <div class="project-title">
-                    Insurance Claims &amp; Climate (ongoing, ECAB/ECCE)
-                  </div>
-                  <div class="project-tag">Climate risk</div>
-                </div>
-                <ul>
-                  <li>
-                    Detect trends in claims evolution in the context of climate change.
-                  </li>
-                  <li>
-                    Damage-function modeling for property claims.
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- TECHNICAL SKILLS -->
-        <section>
-          <div class="section-header">
-            <div class="section-title">Technical Skills</div>
-            <div class="section-pill">Toolbox</div>
-          </div>
-          <div class="section-line"></div>
-          <div class="section-card">
-            <div class="skills-grid">
-              <div class="skill-item">
-                <span class="skill-label">Programming:</span>
-                <span class="skill-text">Python, R, Git</span>
-              </div>
-              <div class="skill-item">
-                <span class="skill-label">ML &amp; Statistics:</span>
-                <span class="skill-text">
-                  Regression &amp; classification, stochastic simulation, spatio-temporal
-                  modeling, deep learning (TensorFlow / Keras)
-                </span>
-              </div>
-              <div class="skill-item">
-                <span class="skill-label">Languages:</span>
-                <span class="skill-text">
-                  Amazigh (native), Arabic, French, English
-                </span>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- EDUCATION -->
-        <section>
-          <div class="section-header">
-            <div class="section-title">Education</div>
-            <div class="section-pill">Degrees</div>
-          </div>
-          <div class="section-line"></div>
-          <div class="section-card">
-            <div class="education-item">
-              <div class="edu-header">
-                <div>
-                  <div class="edu-degree">
-                    PhD in Statistics &amp; Machine Learning
-                  </div>
-                  <div class="edu-inst">University of Rennes 1 · France</div>
-                </div>
-                <div class="edu-meta">2019–2022</div>
-              </div>
-              <div class="edu-thesis">
-                Thesis: Statistics and machine-learning downscaling for coastal climate change
-              </div>
-            </div>
-
-            <div class="education-item">
-              <div class="edu-header">
-                <div>
-                  <div class="edu-degree">
-                    MSc in Statistics &amp; Econometrics
-                  </div>
-                  <div class="edu-inst">Mohammed V University · Morocco</div>
-                </div>
-                <div class="edu-meta">2017–2019</div>
-              </div>
-            </div>
-
-            <div class="education-item">
-              <div class="edu-header">
-                <div>
-                  <div class="edu-degree">BSc in Mathematics</div>
-                  <div class="edu-inst">Ibn Zohr University · Morocco</div>
-                </div>
-                <div class="edu-meta">2013–2017</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- REFERENCES -->
-        <section>
-          <div class="section-header">
-            <div class="section-title">References</div>
-            <div class="section-pill">On request</div>
-          </div>
-          <div class="section-line"></div>
-          <div class="section-card">
-            <div class="references">
-              <p>
-                <strong>Dr. Nicolas Raillard</strong> (IFREMER)<br />
-                <a href="mailto:nicolas.raillard@ifremer.fr">nicolas.raillard@ifremer.fr</a>
-              </p>
-              <p>
-                <strong>Dr. Denis Allard</strong> (INRAE)<br />
-                <a href="mailto:denis.allard@inrae.fr">denis.allard@inrae.fr</a>
-              </p>
-              <p>
-                <strong>Prof. Grégoire Mariéthoz</strong> (University of Lausanne)<br />
-                <a href="mailto:gregoire.mariethoz@unil.ch">
-                  gregoire.mariethoz@unil.ch
-                </a>
-              </p>
-            </div>
-          </div>
-        </section>
       </div>
     </div>
   </div>
+
+  <script>
+    // Collapsible sections
+    document.querySelectorAll('section').forEach(section => {
+      const header = section.querySelector('.section-header');
+      if (!header) return;
+      header.addEventListener('click', (e) => {
+        // Avoid toggling when clicking links or detail buttons
+        if (e.target.closest('a') || e.target.closest('.more-toggle')) return;
+        section.classList.toggle('collapsed');
+      });
+    });
+
+    // Section navigation buttons
+    document.querySelectorAll('.section-nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+        const el = document.querySelector(target);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Details toggles (experience, projects, publications)
+    document.querySelectorAll('.more-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // don't collapse section when clicking
+        const details = btn.previousElementSibling;
+        if (!details) return;
+        const isHidden = details.hasAttribute('hidden');
+        if (isHidden) {
+          details.removeAttribute('hidden');
+          btn.textContent = btn.textContent.replace('More', 'Less').replace('▾', '▴');
+        } else {
+          details.setAttribute('hidden', '');
+          btn.textContent = btn.textContent.replace('Less', 'More').replace('▴', '▾');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
