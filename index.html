@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Said Obakrim – CV</title>
+  <title>Said Obakrim – cv</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -232,6 +232,7 @@
       letter-spacing: 0.12em;
       font-weight: 600;
     }
+
     .item-tags {
       margin-top: 6px;
       display: flex;
@@ -247,6 +248,7 @@
       border: 1px solid rgba(191,219,254,0.9);
       color: #1d4ed8;
     }
+
     .contact {
       display: flex;
       flex-wrap: wrap;
@@ -417,41 +419,39 @@
 
     /* Details toggles (experience, projects, publications) */
 
-.more-details {
-  margin-top: 4px;
-  font-size: 0.88rem;
-  color: var(--text-main);  /* use main text color, not muted */
-}
+    .more-details {
+      margin-top: 4px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
 
-.more-details p {
-  margin: 4px 0 0 0;
-}
+    .more-details p {
+      margin: 4px 0 0 0;
+    }
 
-/* Make publication blurbs look like a clear callout */
-#publications .more-details {
-  margin-top: 6px;
-  padding: 6px 10px;
-  border-left: 3px solid var(--accent);
-  background: var(--accent-soft);
-  font-size: 0.86rem;
-  line-height: 1.5;
-  font-style: italic;
-  color: var(--text-main);
-}
+    /* Make publication blurbs look like a clear callout */
+    #publications .more-details {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      font-size: 0.86rem;
+      line-height: 1.5;
+      font-style: italic;
+      color: var(--text-main);
+    }
 
-.more-toggle {
-  margin-top: 4px;
-  font-size: 0.8rem;
-  border: none;
-  background: var(--accent-soft);
-  color: var(--accent);
-  cursor: pointer;
-  padding: 3px 9px;
-  border-radius: var(--radius-pill);
-
-  display: block;          /* 👈 forces it to start on a new line */
-}
-
+    .more-toggle {
+      margin-top: 4px;
+      font-size: 0.8rem;
+      border: none;
+      background: var(--accent-soft);
+      color: var(--accent);
+      cursor: pointer;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      display: block;
+    }
 
     .more-toggle:hover {
       text-decoration: underline;
@@ -498,64 +498,58 @@
       }
     }
 
-@media print {
-  body {
-    background: var(--bg);
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+    @media print {
+      body {
+        background: var(--bg);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
 
-  .page {
-    margin: 0 auto;  /* center horizontally on the sheet */
-    padding: 0;
-    max-width: 900px;
-  }
+      .page {
+        margin: 0 auto;
+        padding: 0;
+        max-width: 900px;
+      }
 
-  .cv-shell {
-    box-shadow: none;
-  }
+      .cv-shell {
+        box-shadow: none;
+      }
 
-  .cv-shell::before {
-    display: none;
-  }
+      .cv-shell::before {
+        display: none;
+      }
 
-  .download-bar,
-  .section-nav {
-    display: none !important;  /* hide controls in the PDF */
-  }
+      .download-bar,
+      .section-nav {
+        display: none !important;
+      }
 
-  /* Force all sections open in print */
-  section .section-body {
-    display: flex !important;
-  }
+      section .section-body {
+        display: flex !important;
+      }
 
-  /* Show details everywhere and make them dark text... */
-  .more-details {
-    display: block !important;
-    color: var(--text-main) !important;
-  }
+      .more-details {
+        display: block !important;
+        color: var(--text-main) !important;
+      }
 
-  /* ...except for publications, where we hide the extra text */
-  #publications .more-details {
-    display: none !important;
-  }
+      #publications .more-details {
+        display: none !important;
+      }
 
-  /* Hide all "More..." buttons in PDF */
-  .more-toggle {
-    display: none !important;
-  }
+      .more-toggle {
+        display: none !important;
+      }
 
-  .page-break {
-    page-break-before: always;
-  }
+      .page-break {
+        page-break-before: always;
+      }
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-}
-
-
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
   </style>
 </head>
 <body>
@@ -607,7 +601,7 @@
               <h1 class="name"><span>SAID&nbsp;OBAKRIM</span></h1>
             </div>
             <div class="item-tagso">
-              <span class="item-tago">STATISTICIAN &amp; RESEARCH DATA SCIENTIST</span>
+              <span class="item-tago">STATISTICIAN · CLIMATE DATA SCIENTIST</span>
             </div>
             <div class="contact">
               <div class="contact-item">
@@ -616,7 +610,7 @@
               </div>
               <div class="contact-item">
                 <span class="contact-label">Email</span>
-                <a href="mailto:said.obakrim@unil.ch">saidobak@gmail.com</a>
+                <a href="mailto:saidobak@gmail.com">saidobak@gmail.com</a>
               </div>
               <div class="contact-item">
                 <span class="contact-label">GitHub</span>
@@ -649,12 +643,16 @@
               <div class="item-card">
                 <div class="item-body">
                   <p>
-                    I am a statistician and research data scientist specializing in space–time modeling of climate and environmental variables, with a growing focus on extremes and climate risk. My work combines geostatistics, Gaussian random fields and machine learning to build stochastic models and simulators for weather and climate fields, with applications to risk assessment and impact studies. I particularly enjoy working at the interface between methodological research and operational use.
+                    I am a statistician and research data scientist specializing in the space–time
+                    modeling of climate variables, with a growing focus on extremes and climate risk.
+                    I develop stochastic simulation frameworks that reproduce heat waves, heavy
+                    precipitation and other hazardous weather situations. My work combines geostatistics, Gaussian random
+                    fields and machine learning to generate realistic ensembles of scenarios supporting risk assessment and decision
+                    making.
                   </p>
                   <div class="item-tags">
-                    <span class="item-tag">Space–time statistics</span>
-                    <span class="item-tag">Climate &amp; weather modeling</span>
-                    <span class="item-tag">Extremes</span>
+                    <span class="item-tag">Climate extremes &amp; risk</span>
+                    <span class="item-tag">Stochastic weather generators</span>
                     <span class="item-tag">Gaussian random fields</span>
                     <span class="item-tag">Machine learning</span>
                   </div>
@@ -699,7 +697,7 @@
                   <div class="more-details" hidden>
                     <ul>
                       <li>
-                        Work on a general framework for simulating weather and climate fields, including extreme events, in a latent Gaussian setting.
+                        Work on a general framework for simulating weather and climate fields, including extreme events.
                       </li>
                       <li>
                         Implement high-performance Python/JAX code for large ensembles of simulations.
@@ -730,7 +728,7 @@
                 <div class="item-body">
                   <ul>
                     <li>
-                      Designed and implemented <code>MSTWeatherGen</code>, an open-source R package for multivariate space–time weather simulation using a latent Gaussian framework.
+                      Designed and implemented <code>MSTWeatherGen</code>, an open-source R package for multivariate space–time weather simulation.
                     </li>
                   </ul>
                   <div class="more-details" hidden>
@@ -747,7 +745,7 @@
                 </div>
               </div>
 
-              <!-- PhD -->
+                      <!-- PhD -->
               <div class="item-card">
                 <div class="item-header">
                   <div>
@@ -787,8 +785,7 @@
 
         <!-- Page 1 → Page 2 -->
         <div class="page-break"></div>
-
-        <!-- SELECTED RESEARCH PROJECTS (Page 2) -->
+    <!-- SELECTED RESEARCH PROJECTS (Page 2) -->
         <section id="projects">
           <div class="section-header">
             <div class="section-header-left">
@@ -834,7 +831,7 @@
                 <div class="item-body">
                   <ul>
                     <li>
-                      Open-source R package for simulating multiple weather variables jointly in space and time using a latent Gaussian approach.
+                      Open-source R package for simulating multiple weather variables jointly in space and time.
                     </li>
                   </ul>
                   <div class="more-details" hidden>
@@ -858,41 +855,34 @@
                   <button class="more-toggle">More details ▾</button>
                 </div>
               </div>
-
-              <!-- CNN–LSTM project -->
-              <div class="item-card">
-                <div class="item-header">
-                  <div class="item-title">CNN–LSTM Wave Forecast Model</div>
-                  <div class="item-meta">Deep learning</div>
-                </div>
-                <div class="item-body">
-                  <ul>
-                    <li>
-                      Two-stage CNN–LSTM model for near-shore significant wave height forecasting from large-scale atmospheric and oceanic drivers.
-                    </li>
-                  </ul>
-                  <div class="more-details" hidden>
-                    <ul>
-                      <li>
-                        Implemented training, evaluation and reproducible experiments in Python.
-                      </li>
-                      <li>
-                        Code available at:
-                        <a
-                          href="https://github.com/sobakrim/Two-stage-CNN-LSTM-"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          github.com/sobakrim/Two-stage-CNN-LSTM-
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <button class="more-toggle">More details ▾</button>
-                </div>
-              </div>
-            </div>
-          </div>
+<!-- Claims / impacts project -->
+<div class="item-card">
+  <div class="item-header">
+    <div class="item-title">
+      Analysis of Fribourg property claims &amp; weather extremes
+    </div>
+    <div class="item-meta">Ongoing project</div>
+  </div>
+  <div class="item-body">
+    <ul>
+      <li>
+        Exploratory analysis of building-insurance claims in a Fribourg
+        (heavy rain, storms, hail).
+      </li>
+    </ul>
+    <div class="more-details" hidden>
+      <ul>
+        <li>
+          Detect trends in claims evolution in the context of climate change.
+        </li>
+      </ul>
+       <ul>
+      <li> Provides first steps towards empirical damage functions that connect weather extremes to observed building losses. </li>
+      <ul>
+    </div>
+    <button class="more-toggle">More details ▾</button>
+  </div>
+</div>
         </section>
 
         <!-- TECHNICAL SKILLS (Page 2) -->
@@ -962,7 +952,9 @@
                   <div class="item-meta">2019–2022</div>
                 </div>
                 <div class="item-body">
-                  Thesis: Statistical Downscaling and Climate Change in the Coastal Zone.
+                  Thesis: Statistical downscaling and climate change in the coastal zone, combining
+                  statistical models and deep learning to better represent sea-state hazards under
+                  changing climate.
                 </div>
               </div>
 
@@ -1026,12 +1018,12 @@
           </div>
         </section>
 
-        <!-- PUBLICATIONS (Page 3) -->
+        <!-- PUBLICATIONS (Page 3) – SELECTED ONLY -->
         <section id="publications">
           <div class="section-header">
             <div class="section-header-left">
               <div class="section-dot"></div>
-              <div class="section-title">Publications</div>
+              <div class="section-title">Selected Publications </div>
             </div>
             <div class="section-toggle-icon">▾</div>
           </div>
@@ -1042,21 +1034,25 @@
                 <div class="item-body">
                   <ul>
                     <li>
-                      Obakrim, S., Allard, D., Benoit, L. &amp; Mariéthoz, G. (2026+).
-                      <em>Combining machine learning quantile regression and Gaussian random fields: a general framework for modeling and simulating space-time processes.</em>
+                      Obakrim, S., Allard, D., Benoit, L. &amp; Mariéthoz, G. (2026+, in prep.).
+                      <em>Combining machine learning quantile regression and Gaussian random fields:
+                      a general framework for modeling and simulating space–time processes.</em>
                       <div class="more-details" hidden>
-                <p class="paper-summary">
-                  <strong>Summary.</strong>
-                  This work introduces a general framework that couples machine-learning-based
-                  quantile regression with latent Gaussian random fields to model and simulate
-                  space–time processes conditional on covariates. The approach is evaluated on
-                  synthetic experiments and a Swiss climate application.
-                </p>
-                <p class="paper-summary">
-                  <strong>Keywords.</strong>
-                  Quantile regression; Gaussian random fields; space–time processes; stochastic
-                  simulation; climate applications.
-                </p>
+                        <p class="paper-summary">
+                          <strong>Summary.</strong>
+                          Introduces a flexible framework that couples machine-learning-based
+                          quantile regression with latent Gaussian random fields to simulate climate
+                          variables in space and time, including extremes such as heat waves and
+                          heavy precipitation. The framework is evaluated on synthetic experiments
+                          and on a Swiss climate application, with a focus on risk-relevant
+                          indicators.
+                        </p>
+                        <p class="paper-summary">
+                          <strong>Relevance.</strong>
+                          Provides a general stochastic engine that can produce ensembles of
+                          climate scenarios, suitable for coupling with impact and damage models in
+                          insurance or infrastructure planning.
+                        </p>
                       </div>
                       <button class="more-toggle">More about this paper ▾</button>
                     </li>
@@ -1069,96 +1065,45 @@
                         https://doi.org/10.1007/s00477-024-02897-8
                       </a>
                       <div class="more-details" hidden>
-                   <p class="paper-summary">
- <strong>Summary.</strong>
-                  Presents MSTWeatherGen, a multivariate space–time stochastic weather generator at
-                  daily resolution. Multiple variables (temperature, precipitation, wind speed,
-                  humidity, solar radiation) are modeled via a transformed multivariate Gaussian
-                  random field with a stationary, non-separable cross-covariance, combined with
-                  weather types to represent seasonality and circulation regimes. Applied over the
-                  Provence–Alpes–Côte d’Azur region, the generator reproduces a wide range of
-                  statistics, including non-linear indicators such as heat waves and fire weather
-                  indices.
-                </p>
-                <p class="paper-summary">
-                  <strong>Keywords.</strong>
-                  Stochastic weather generator; multivariate space–time model; latent Gaussian
-                  field; non-separable cross-covariance; weather types; fire weather
-                  index.
-                </p>
+                        <p class="paper-summary">
+                          <strong>Summary.</strong>
+                          Presents MSTWeatherGen, a multivariate stochastic weather generator at
+                          daily resolution. Multiple variables (temperature, precipitation, wind
+                          speed, humidity, solar radiation) are modelled via a transformed
+                          multivariate Gaussian random field with a non-separable cross-covariance,
+                          combined with weather types. The generator is calibrated over the
+                          Provence–Alpes–Côte d’Azur region and reproduces numerous statistics,
+                          including extremes and climate indicators such as heat waves and fire
+                          weather index.
+                        </p>
+                        <p class="paper-summary">
+                          <strong>Relevance.</strong>
+                          Demonstrates that latent-Gaussian generators can support impact and risk
+                          studies where realistic behaviour of extremes is crucial.
+                        </p>
                       </div>
                       <button class="more-toggle">More about this paper ▾</button>
                     </li>
 
                     <li>
                       Allard, D., Benoit, L., Obakrim, S. (2025).
-                      <em>Modeling and simulating spatio-temporal, multivariate and nonstationary Gaussian Random Fields: a Gaussian mixtures perspective.</em>
+                      <em>Modeling and simulating spatio-temporal, multivariate and nonstationary Gaussian random fields: a Gaussian mixtures perspective.</em>
                       <a href="https://hal.inrae.fr/hal-05034982v1" target="_blank" rel="noreferrer">
                         https://hal.inrae.fr/hal-05034982v1
                       </a>
                       <div class="more-details" hidden>
-                <p class="paper-summary">
-                  <strong>Summary.</strong>
-                  Proposes a Gaussian-mixture representation to build flexible, nonstationary
-                  multivariate space–time Gaussian random fields. The paper discusses both modeling aspects and
-                  efficient simulation strategies for environmental and climate applications.
-                </p>
-                <p class="paper-summary">
-                  <strong>Keywords.</strong>
-                  Gaussian random fields; Gaussian mixtures; nonstationary covariance; multivariate
-                  space–time modeling; large-scale simulation; environmental applications.
-                </p>
-                      </div>
-                      <button class="more-toggle">More about this paper ▾</button>
-                    </li>
-
-                    <li>
-                      Alglave, B., Dufée, B., Obakrim, S., Thorson, J. T. (2024).
-                      <em>Empirical Orthogonal Functions for ecology.</em>
-                      <a href="https://hal.science/hal-04693871/" target="_blank" rel="noreferrer">
-                        https://hal.science/hal-04693871/
-                      </a>
-                      <div class="more-details" hidden>
-                <p class="paper-summary">
-                  <strong>Summary.</strong>
-                  Provides an accessible introduction to Empirical Orthogonal Functions (EOFs) for
-                  ecological applications, showing how EOFs can be used to extract dominant spatial
-                  and temporal patterns from high-dimensional ecological data. The paper discusses
-                  links with PCA, illustrates use cases on ecological time series and spatial
-                  distributions, and highlights interpretation issues and good practice.
-                </p>
-                <p class="paper-summary">
-                  <strong>Keywords.</strong>
-                  Empirical Orthogonal Functions; dimensionality reduction; ecological data;
-                  spatial–temporal patterns; multivariate analysis.
-                </p>
-                      </div>
-                      <button class="more-toggle">More about this paper ▾</button>
-                    </li>
-
-                    <li>
-                      Obakrim, S., Ailliot, P., Monbet, V., &amp; Raillard, N. (2024).
-                      <em>EM algorithm for generalized Ridge regression with spatial covariates.</em>
-                      Environmetrics, e2871.
-                      <a href="https://doi.org/10.1002/env.2871" target="_blank" rel="noreferrer">
-                        https://doi.org/10.1002/env.2871
-                      </a>
-                      <div class="more-details" hidden>
-                <p class="paper-summary">
-                  <strong>Summary.</strong>
-                  Develops an expectation–maximization algorithm for generalized Ridge regression
-                  where the prior covariance of the regression coefficients has a parametric
-                  structure (diagonal, Matérn, conditional autoregressive, etc.). The method
-                  jointly estimates regression and penalty parameters, ensuring that the
-                  regularization reflects spatial structure when covariates are spatially indexed.
-                  Performance is assessed in simulations and on an application to wave-height
-                  prediction from wind conditions.
-                </p>
-                <p class="paper-summary">
-                  <strong>Keywords.</strong>
-                  Generalized Ridge regression; EM algorithm; spatial structure; penalized
-                  regression; high-dimensional data; wave-height modeling.
-                </p>
+                        <p class="paper-summary">
+                          <strong>Summary.</strong>
+                          Proposes a Gaussian-mixture representation to construct flexible,
+                          nonstationary, multivariate space–time Gaussian random fields and
+                          discusses efficient simulation strategies for large environmental and
+                          climate data sets.
+                        </p>
+                        <p class="paper-summary">
+                          <strong>Relevance.</strong>
+                          Provides tools for realistic simulation of complex climate fields, an
+                          important building block for hazard and risk modelling.
+                        </p>
                       </div>
                       <button class="more-toggle">More about this paper ▾</button>
                     </li>
@@ -1171,68 +1116,25 @@
                         https://doi.org/10.5194/ascmo-9-67-2023
                       </a>
                       <div class="more-details" hidden>
-                <p class="paper-summary">
-                  <strong>Summary.</strong>
-                  Investigates the statistical relationship between North Atlantic wind fields and
-                  significant wave height at three locations (Gironde, English Channel, Gulf of
-                  Maine). The method defines local and global predictors to represent both wind
-                  seas and swells, then uses a regression-guided clustering to construct weather
-                  types and fits Ridge regressions in each type. The resulting transfer function
-                  achieves RMSE ≈ 0.3 m and provides interpretable information on the
-                  space–time wind–wave link.
-                </p>
-                <p class="paper-summary">
-                  <strong>Keywords.</strong>
-                  Wind–wave relationship; significant wave height; weather types; statistical
-                  downscaling; Ridge regression; North Atlantic.
-                </p>
+                        <p class="paper-summary">
+                          <strong>Summary.</strong>
+                          Investigates the statistical relationship between North Atlantic wind
+                          fields and significant wave height at several coastal locations. Defines
+                          predictors representing both wind seas and swells, uses
+                          regression-guided clustering to build weather types, and fits Ridge
+                          regressions in each type. The resulting transfer function provides accurate
+                          and interpretable predictions of sea-state hazards.
+                        </p>
+                        <p class="paper-summary">
+                          <strong>Relevance.</strong>
+                          Illustrates how statistical models can link large-scale drivers to local
+                          hazards, a key ingredient for risk assessment in marine and coastal
+                          environments.
+                        </p>
                       </div>
                       <button class="more-toggle">More about this paper ▾</button>
                     </li>
 
-                    <li>
-                      Obakrim, S., Monbet, V., Raillard, N., &amp; Ailliot, P. (2023).
-                      <em>Learning the spatiotemporal relationship between wind and significant wave height using deep learning.</em>
-                      Environmental Data Science, 2, e5.
-                      <a href="https://doi.org/10.1017/eds.2022.35" target="_blank" rel="noreferrer">
-                        https://doi.org/10.1017/eds.2022.35
-                      </a>
-                      <div class="more-details" hidden>
-                <p class="paper-summary">
-                  <strong>Summary.</strong>
-This work investigates the spatiotemporal relationship between North Atlantic wind and significant wave height at an off-shore location in the Bay of Biscay, using a two-stage deep learning model. The first step uses convolutional neural networks to extract the spatial features that contribute to wave heights. Then, long short-term memory is used to learn the long-term temporal dependencies between wind and waves.
-                </p>
-                <p class="paper-summary">
-                  <strong>Keywords.</strong>
-               Convolutional neural networks;
-                  long short-term memory;
-                significant wave height;
-                wind fields.
-                </p>
-                      </div>
-                      <button class="more-toggle">More about this paper ▾</button>
-                    </li>
-
-                    <li>
-                      Michel, M., Obakrim, S., Raillard, N., Ailliot, P., Monbet, V. (2022).
-                      <em>Deep learning for statistical downscaling of sea states.</em>
-                      Advances in Statistical Climatology, Meteorology and Oceanography, 8(1), 83–95.
-                      <a href="https://doi.org/10.5194/ascmo-8-83-2022" target="_blank" rel="noreferrer">
-                        https://doi.org/10.5194/ascmo-8-83-2022
-                      </a>
-                      <div class="more-details" hidden>
-                <p class="paper-summary">
-                  <strong>Summary.</strong>
-   Introduces a convolutional neural network for statistical downscaling of significant wave height from large-scale wind fields in the Bay of Biscay. The CNN-based model is compared with other statistical approaches and with the WAVEWATCH III hindcast
-                </p>
-                <p class="paper-summary">
-                  <strong>Keywords.</strong>
-                  Sea-state downscaling; convolutional neural networks; significant wave height;
-                  deep learning.
-                </p>
-                      </div>
-                      <button class="more-toggle">More about this paper ▾</button>
-                    </li>
                   </ul>
                 </div>
               </div>
@@ -1270,7 +1172,7 @@ This work investigates the spatiotemporal relationship between North Atlantic wi
     // Details toggles (experience, projects, publications)
     document.querySelectorAll('.more-toggle').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        e.stopPropagation(); // don't collapse section when clicking
+        e.stopPropagation();
         const details = btn.previousElementSibling;
         if (!details) return;
         const isHidden = details.hasAttribute('hidden');
